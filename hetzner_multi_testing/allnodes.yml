@@ -1,5 +1,5 @@
 --- # Ansible playbook for preparing Centos7 VM for packstack-openstack installation
-- hosts: hetzner_node1
+- hosts: hetzner_multi_testing
   gather_facts: no
   tasks: 
   - name: Setup required repositories - centos-release-openstack-stein
@@ -19,5 +19,4 @@
 #    reboot:
 #      reboot_timeout: 600
 #      test_command: uptime
-       
        
