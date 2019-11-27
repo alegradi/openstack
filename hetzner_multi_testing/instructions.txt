@@ -1,0 +1,4 @@
+Use the below method to make this playbook work:
+
+1, export TF_VAR_hcloud_token="mytoken"
+
