@@ -2,3 +2,5 @@ Use the below method to make this playbook work:
 
 1, export TF_VAR_hcloud_token="mytoken"
 
+2, ansible is being called manually for now: ansible-playbook node1.yml -i inv --key-file=~/.ssh/terraform_pwless
+
