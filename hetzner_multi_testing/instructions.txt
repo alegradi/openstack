@@ -1,13 +1,14 @@
-Use the below method to make this playbook work:
+Follow the instructions in this file to make the playbook work correctly.
+This was written to be used with Hetzner Cloud
 
 1, export TF_VAR_hcloud_token="mytoken"
 
 2, ansible is being called manually for now: ansible-playbook allnodes.yml -i inv --key-file=~/.ssh/terraform_pwless
 
-Might be worthwhile disregarding ansible alltogether ans use cloud-init script when an instance is deployed
+Might be worthwhile disregarding ansible alltogether and use cloud-init script when an instance is deployed
 https://cloudinit.readthedocs.io/en/latest/topics/examples.html
 
-The Terraform network config currently creates 2 private networks
+3, The Terraform network config currently creates 2 private networks
 
 Management network - 10.0.0.0/8
 openstack_man_vlan1 - 10.0.2.0/24
@@ -18,5 +19,10 @@ Tenant network - 192.168.0.0/16
 openstack_ten_vlan1 - 192.168.10.0/24
 node1 - 192.168.10.1
 node2 - 192.168.10.2
+
+
+To Do:
+
+1, Use terraform local-exec to remove entries from known_hosts so that ansible doesn't complain when its being played again a host existing in ~/.ssh/known_hosts
 
 

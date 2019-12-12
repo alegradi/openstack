@@ -10,3 +10,6 @@
 
 # .retry ansible files
 *.retry
+
+# .swp terraform files
+*.swp

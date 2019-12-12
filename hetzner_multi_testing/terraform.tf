@@ -5,7 +5,7 @@
 resource "hcloud_server" "node1" {
   name 		= "node1"
   image         = "centos-7"
-  server_type   = "cx11"
+  server_type   = "cx31"
   ssh_keys      = ["${data.hcloud_ssh_key.centos7-terraform_key.id}"]
 
 # Calling Ansible playbook from Terraform currently commented out and the playbook is called manually 
@@ -18,7 +18,7 @@ resource "hcloud_server" "node1" {
 resource "hcloud_server" "node2" {
   name          = "node2"
   image         = "centos-7"
-  server_type   = "cx11"
+  server_type   = "cx31"
   ssh_keys      = ["${data.hcloud_ssh_key.centos7-terraform_key.id}"]
 }
 
