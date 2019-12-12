@@ -1,0 +1,2 @@
+[hetzner_singlenode_testing]
+hetzner_node1 ansible_host=78.47.182.38 

@@ -1,0 +1,32 @@
+--- # Ansible playbook for preparing Centos7 VM for packstack-openstack installation
+- hosts: hetzner_singlenode_testing
+  gather_facts: no
+  tasks: 
+  - name: Setup required repositories - centos-release-openstack-stein
+    yum: 
+      name: centos-release-openstack-stein
+      state: latest
+  - name: Update all packages
+    yum:
+      name: '*'
+      state: latest
+  - name: Install Packstack installer
+    yum: 
+      name: openstack-packstack
+      state: latest
+  - name: Install additional packages
+    yum:
+      name: vim
+      state: latest
+
+
+
+
+
+
+## needs ansible 2.7.0 for this to work
+#  - name: Reboot the machine to apply packages
+#    reboot:
+#      reboot_timeout: 600
+#      test_command: uptime
+       
