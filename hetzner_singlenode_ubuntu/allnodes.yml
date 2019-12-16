@@ -1,24 +1,25 @@
---- # Ansible playbook for preparing Centos7 VM for packstack-openstack installation
+--- # Ansible playbook for preparing Ubuntu 16.04 VM for packstack-openstack installation
 - hosts: hetzner_singlenode_testing
   gather_facts: no
   tasks: 
-  - name: Setup required repositories - centos-release-openstack-stein
-    yum: 
-      name: centos-release-openstack-stein
-      state: latest
-  - name: Update all packages
-    yum:
+  - name: Setup required repositories - cloud-archive:stein
+    apt_repository: 
+      repo: cloud-archive:stein
+      state: present
+  - name: Update all packages and repo information
+    apt:
       name: '*'
       state: latest
+      update_cache: yes
   - name: Install Packstack installer
-    yum: 
+    apt: 
       name: openstack-packstack
       state: latest
   - name: Install additional packages
-    yum:
-      name: vim
-      state: latest
-
+    apt:
+      pkg:
+      - vim
+      - chrony
 
 
 
